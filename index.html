@@ -208,7 +208,7 @@
 
         /* Contact Section */
         .contact {
-            background-color: #50b243;
+            background: linear-gradient(135deg, #50b243 0%, #3a8530 100%);
             color: white;
             padding: 60px 20px;
             text-align: center;
@@ -216,65 +216,93 @@
         }
 
         .contact-content {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 40px;
-            border-radius: 8px;
         }
 
         .contact h2 {
+            margin-bottom: 50px;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
             margin-bottom: 40px;
-            font-size: 28px;
         }
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
+        .contact-item {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
         }
 
-        .contact-info div {
-            text-align: center;
+        .contact-item-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
         }
 
-        .contact-info strong {
-            display: block;
+        .contact-item-label {
             font-size: 12px;
-            opacity: 0.9;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
+            opacity: 0.85;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+            font-weight: 600;
         }
 
-        .contact-info p {
-            margin: 0;
-            font-size: 18px;
+        .contact-item-value {
+            font-size: 20px;
             font-weight: 500;
+            margin-bottom: 10px;
         }
 
-        .contact-info a {
+        .contact-item a {
             color: white;
             text-decoration: none;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-            transition: border-bottom 0.3s ease;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
         }
 
-        .contact-info a:hover {
+        .contact-item a:hover {
             border-bottom: 2px solid white;
         }
 
-        .contact-hours {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 8px;
-            font-size: 14px;
-            margin-top: 0;
+        .contact-hours-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            grid-column: 1 / -1;
         }
 
-        .contact-hours p {
-            margin: 8px 0;
+        .contact-hours-box strong {
+            display: block;
+            font-size: 12px;
+            opacity: 0.85;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .contact-hours-box p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contact h2 {
+                font-size: 24px;
+            }
+
+            .contact-item {
+                padding: 20px;
+            }
         }
 
         /* Responsive Design */
@@ -507,21 +535,28 @@
     <!-- Contact Section -->
     <section class="contact">
         <div class="contact-content">
-            <h2>Neem Contact Met Ons Op</h2>
-            <div class="contact-info">
-                <div>
-                    <strong>BELLEN</strong>
-                    <p><a href="tel:+31612466941">+31 612 466 941</a></p>
+            <h2>Contactgegevens</h2>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-item-icon">📞</div>
+                    <div class="contact-item-label">BELLEN</div>
+                    <div class="contact-item-value"><a href="tel:+31612466941">+31 612 466 941</a></div>
+                    <p style="font-size: 12px; opacity: 0.7; margin: 0;">Snel bereikbaar</p>
                 </div>
-                <div>
-                    <strong>EMAIL</strong>
-                    <p><a href="mailto:info@lekvrijdak.nl">info@lekvrijdak.nl</a></p>
+
+                <div class="contact-item">
+                    <div class="contact-item-icon">✉️</div>
+                    <div class="contact-item-label">EMAIL</div>
+                    <div class="contact-item-value"><a href="mailto:info@lekvrijdak.nl">info@lekvrijdak.nl</a></div>
+                    <p style="font-size: 12px; opacity: 0.7; margin: 0;">Snelle respons</p>
                 </div>
-            </div>
-            <div class="contact-hours">
-                <p><strong>OPENINGSTIJDEN</strong></p>
-                <p>Maandag t/m Zaterdag: 08:00 - 18:00</p>
-                <p>Zondag: Alleen noodgevallen</p>
+
+                <div class="contact-hours-box">
+                    <strong>OPENINGSTIJDEN</strong>
+                    <p>Maandag t/m Zaterdag: 08:00 - 18:00</p>
+                    <p>Zondag: Alleen spoedgevallen</p>
+                </div>
             </div>
         </div>
     </section>
