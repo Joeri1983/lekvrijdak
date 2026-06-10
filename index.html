@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lekvrij Dak | Dakbedekkingsbedrijf</title>
+    <meta name="description" content="Professionele dakbedekking en isolatie. Plat dak vernieuwen, isoleren, inspectie en groendak.">
+
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: white;
+            padding: 40px 20px 15px 20px;
+            text-align: center;
+            border-bottom: 4px solid #50b243;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero img {
+            max-width: 360px;
+            height: auto;
+            margin: 0 auto 10px auto;
+            display: block;
+        }
+
+        .hero-tagline {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #50b243;
+            color: white;
+            padding: 16px 40px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 16px;
+        }
+
+        .cta-button:hover {
+            background-color: #3a8530;
+        }
+
+        .hero-services {
+            font-size: 14px;
+            color: #999;
+            margin-top: 20px;
+        }
+
+        /* Services Section */
+        .services {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .services h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+            font-size: 28px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 24px;
+            border-radius: 8px;
+            border-left: 4px solid #50b243;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card h3 {
+            color: #50b243;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .reviews h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .reviews-scroll {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-height: 260px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .reviews-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .reviews-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .reviews-scroll::-webkit-scrollbar-thumb {
+            background: #50b243;
+            border-radius: 10px;
+        }
+
+        .review-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 12px;
+        }
+
+        .review-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .review-stars {
+            color: #ffc107;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .review-date {
+            font-size: 11px;
+            color: #999;
+        }
+
+        /* Green Divider */
+        .green-divider {
+            height: 4px;
+            background-color: #50b243;
+            margin: 40px 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #50b243;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            margin-bottom: 40px;
+            font-size: 28px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .contact-info div {
+            text-align: center;
+        }
+
+        .contact-info strong {
+            display: block;
+            font-size: 12px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .contact-info p {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            transition: border-bottom 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            border-bottom: 2px solid white;
+        }
+
+        .contact-hours {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-top: 30px;
+        }
+
+        .contact-hours p {
+            margin: 8px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero img {
+                max-width: 150px;
+            }
+
+            .hero-tagline {
+                font-size: 16px;
+            }
+
+            .services {
+                margin: 40px auto;
+            }
+
+            .services h2 {
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contact {
+                padding: 40px 20px;
+                margin-top: 40px;
+            }
+
+            .contact h2 {
+                font-size: 24px;
+                margin-bottom: 24px;
+            }
+
+            .contact p {
+                font-size: 14px;
+            }
+
+            .cta-button {
+                font-size: 14px;
+                padding: 14px 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 40px 16px;
+            }
+
+            .hero img {
+                max-width: 120px;
+                margin-bottom: 16px;
+            }
+
+            .hero-tagline {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+
+            .services {
+                margin: 30px auto;
+                padding: 0 16px;
+            }
+
+            .services h2 {
+                font-size: 20px;
+            }
+
+            .service-card {
+                padding: 16px;
+            }
+
+            .service-card h3 {
+                font-size: 16px;
+            }
+
+            .service-card p {
+                font-size: 13px;
+            }
+
+            .cta-button {
+                font-size: 13px;
+                padding: 12px 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <img src="LVD.jpg" alt="Lekvrij Dak Logo">
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Onze Diensten</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Platte Daken</h3>
+                <p>Professionele toepassing van bitumineuze membranen en kunststof dakbedekkingssystemen. Wij waarborgen optimale waterdichtheid, vorstbestandigheid en duurzaamheid van uw platte daken met vakkundige verwerking van dakdoorbrekingen en randen.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Dakpannen</h3>
+                <p>Specialistische plaatsing en vervanging van keramische en betonnen dakpannen. Wij verzekeren juiste hechting, onderliggende laagafwerking en correcte nageling voor maximale lekvrijheid en weerbestendigheid tegen extreme weersomstandigheden.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Dakgoten</h3>
+                <p>Installatie van duurzame afvoersystemen in zink, aluminium of kunststof. Wij hanteren de juiste hellingen, kolkplaatsing en verbindingstechnieken voor optimale waterafvoering en preventie van stagnatie en vervuiling.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Dakisolatie</h3>
+                <p>Toepassing van hoogwaardig isolatiemateriaal met optimale thermische weerstand (R-waarde). Wij borgen juiste dampwering, vochtregulering en ventilatie voor betere energieprestatie en voorkoming van condensatie.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <button class="cta-button" onclick="handleQuoteRequest()">Offerte Aanvragen</button>
+        </div>
+    </section>
+
+    <!-- Green Divider -->
+    <div class="green-divider"></div>
+
+    <!-- Google Reviews Section -->
+    <section class="reviews">
+        <h2>Google Reviews</h2>
+        <div class="reviews-scroll">
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="review-name">Michael Scully</span>
+                    <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">Jan is een fijne gesprekspartner die doet wat hij zegt en je ontzorgt. Het dak compleet vernieuwd in een week tijd. Het team werkt hard en goed. Fijne, open en transparante communicatie. Wij bevelen Lekvrij Dak zeker aan!</p>
+                <span class="review-date">Recent</span>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="review-name">Roland L</span>
+                    <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">Nieuw dak laten leggen na lekkage. Vanaf offerte tot uitvoering super geregeld. Echt vakwerk afgeleverd. Alles werd steeds overlegd als er wat wijzigde. Jan en collega's bedankt!</p>
+                <span class="review-date">4 maanden geleden</span>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="review-name">Marja Nijhoff</span>
+                    <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">Had lekkage, en Lekvrij Dak heeft dit super opgelost. Zeer vakkundig, klantvriendelijk en meedenkend. Heel blij met het nieuwe dak. Een aanrader!</p>
+                <span class="review-date">4 maanden geleden</span>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="review-name">Sjors Verdonck</span>
+                    <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">Uitstekende ervaring klus geklaard. Ging snel (binnen 2 dagen), erg vriendelijk en netjes gewerkt. Alles mooi afgewerkt.</p>
+                <span class="review-date">1 jaar geleden</span>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="review-name">Bas</span>
+                    <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">Topservice! Jan is eerlijk, betrouwbaar en zeer vriendelijk. Na veel problemen met andere dakmannen, eindelijk een fatsoenlijke. Aanrader!</p>
+                <span class="review-date">4 maanden geleden</span>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="review-name">Harold Taal</span>
+                    <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">Vakkundige, efficiënte en zeer klantgerichte aanpak. Jan is ook zeer transparant in zijn adviezen en kosten. Dat geeft vertrouwen!</p>
+                <span class="review-date">10 maanden geleden</span>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="review-name">Henk Fritscheck</span>
+                    <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">Vriendelijk, professioneel en heel snel. Prima vakwerk bij het voorzien van mijn uitbouw met nieuw bitumen dak. Uitstekend gedaan!</p>
+                <span class="review-date">1 jaar geleden</span>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="review-name">Gertjan Frijlink</span>
+                    <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">Ontzettend tevreden over de dienstverlening. Platte dak vervangen en dat is vlekkeloos verlopen. Communicatie was helder, afspraken nagekomen!</p>
+                <span class="review-date">11 maanden geleden</span>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="review-name">Frank Kleijs</span>
+                    <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">Vrijdag nieuw dakje op schuur geplaatst ziet er goed uit. Prima vakmensen die hun werk serieus nemen!</p>
+                <span class="review-date">6 maanden geleden</span>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="review-name">Ruud van Wijk</span>
+                    <span class="review-stars">★★★★★</span>
+                </div>
+                <p class="review-text">Compleet dak vernieuwd. Grote klus in 4 dagen geklaard door 2 prima vakmannen. Alles keurig opgeruimd. Geen spijt van mijn keuze!</p>
+                <span class="review-date">1 jaar geleden</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="contact-content">
+            <h2>Neem Contact Met Ons Op</h2>
+            <div class="contact-info">
+                <div>
+                    <strong>BELLEN</strong>
+                    <p><a href="tel:+31612466941">+31 612 466 941</a></p>
+                </div>
+                <div>
+                    <strong>EMAIL</strong>
+                    <p><a href="mailto:info@lekvrijdak.nl">info@lekvrijdak.nl</a></p>
+                </div>
+            </div>
+            <div class="contact-hours">
+                <p><strong>OPENINGSTIJDEN</strong></p>
+                <p>Maandag t/m Zaterdag: 08:00 - 18:00</p>
+                <p>Zondag: Alleen noodgevallen</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function handleQuoteRequest() {
+            window.location.href = 'mailto:info@lekvrijdak.nl?subject=Offerte Aanvraag&body=Hallo,%0A%0AIk ben geïnteresseerd in een offerte voor uw diensten.%0A%0AMet vriendelijke groet';
+        }
+    </script>
+</body>
+</html>
