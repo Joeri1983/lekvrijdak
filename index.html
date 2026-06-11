@@ -39,7 +39,7 @@
         }
 
         .hero img {
-            max-width: 520px;
+            max-width: 360px;
             height: auto;
             margin: 0 auto 10px auto;
             display: block;
@@ -123,186 +123,93 @@
             line-height: 1.6;
         }
 
-        /* Reviews Section */
-        .reviews {
-            max-width: 700px;
+        /* Contact Section */
+        /* Google Reviews Section */
+        .google-reviews {
+            max-width: 900px;
             margin: 60px auto;
             padding: 0 20px;
         }
 
-        .reviews h2 {
+        .google-reviews h2 {
             text-align: center;
             color: #333;
-            margin-bottom: 30px;
+            margin-bottom: 12px;
             font-size: 28px;
         }
 
-        .reviews-scroll {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            max-height: 260px;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-
-        .reviews-scroll::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .reviews-scroll::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-
-        .reviews-scroll::-webkit-scrollbar-thumb {
-            background: #50b243;
-            border-radius: 10px;
-        }
-
-        .review-card {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            flex-shrink: 0;
-        }
-
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 12px;
-        }
-
-        .review-name {
-            font-weight: bold;
-            color: #333;
-            font-size: 14px;
-        }
-
-        .review-stars {
-            color: #ffc107;
-            font-size: 14px;
-            letter-spacing: 2px;
-        }
-
-        .review-text {
+        .google-reviews-subtitle {
+            text-align: center;
             color: #666;
-            font-size: 13px;
-            line-height: 1.5;
-            margin-bottom: 10px;
+            margin-bottom: 32px;
+            font-size: 14px;
         }
 
-        .review-date {
-            font-size: 11px;
-            color: #999;
+        .google-reviews-link {
+            text-align: center;
+            padding: 16px 0;
         }
 
-        /* Green Divider */
-        .green-divider {
-            height: 4px;
-            background-color: #50b243;
-            margin: 40px 0;
+        .google-reviews-link a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #f8f9fa;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .google-reviews-link a:hover {
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-color: #50b243;
+        }
+
+        .google-logo {
+            width: 20px;
+            height: 20px;
         }
 
         /* Contact Section */
         .contact {
-            background: linear-gradient(135deg, #50b243 0%, #3a8530 100%);
+            background-color: #50b243;
             color: white;
-            padding: 60px 20px;
+            padding: 40px 20px;
             text-align: center;
             margin-top: 40px;
         }
 
         .contact-content {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
         .contact h2 {
-            margin-bottom: 50px;
-            font-size: 32px;
-            font-weight: 600;
+            margin-bottom: 30px;
+            font-size: 28px;
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .contact-item {
-            background-color: rgba(255, 255, 255, 0.15);
-            padding: 30px;
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-item-icon {
-            font-size: 32px;
-            margin-bottom: 15px;
-        }
-
-        .contact-item-label {
-            font-size: 12px;
-            opacity: 0.85;
-            margin-bottom: 12px;
-            letter-spacing: 2px;
-            font-weight: 600;
-        }
-
-        .contact-item-value {
-            font-size: 20px;
-            font-weight: 500;
-            margin-bottom: 10px;
-        }
-
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-            transition: all 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            border-bottom: 2px solid white;
-        }
-
-        .contact-hours-box {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 12px;
-            grid-column: 1 / -1;
-        }
-
-        .contact-hours-box strong {
-            display: block;
-            font-size: 12px;
-            opacity: 0.85;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-
-        .contact-hours-box p {
-            margin: 10px 0;
+        .contact p {
+            margin-bottom: 16px;
             font-size: 16px;
         }
 
-        @media (max-width: 600px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
+        .contact-hours {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-top: 24px;
+        }
 
-            .contact h2 {
-                font-size: 24px;
-            }
-
-            .contact-item {
-                padding: 20px;
-            }
+        .contact-hours strong {
+            display: block;
+            margin-bottom: 4px;
         }
 
         /* Responsive Design */
@@ -312,7 +219,7 @@
             }
 
             .hero img {
-                max-width: 350px;
+                max-width: 150px;
             }
 
             .hero-tagline {
@@ -331,6 +238,10 @@
             .services-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
+            }
+
+            .google-reviews h2 {
+                font-size: 24px;
             }
 
             .contact {
@@ -359,12 +270,13 @@
             }
 
             .hero img {
-                max-width: 280px;
+                max-width: 120px;
                 margin-bottom: 16px;
             }
 
             .hero-tagline {
                 font-size: 14px;
+                margin-bottom: 20px;
             }
 
             .services {
@@ -392,157 +304,6 @@
                 font-size: 13px;
                 padding: 12px 28px;
             }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .modal.active {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            background-color: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-        }
-
-        .modal-header {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-
-        .close-modal {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            font-size: 28px;
-            font-weight: bold;
-            color: #999;
-            cursor: pointer;
-            border: none;
-            background: none;
-            padding: 0;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .close-modal:hover {
-            color: #333;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-family: inherit;
-            font-size: 14px;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #50b243;
-            box-shadow: 0 0 0 3px rgba(80, 178, 67, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        @media (max-width: 600px) {
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .form-buttons {
-            display: flex;
-            gap: 12px;
-            margin-top: 28px;
-        }
-
-        .form-error {
-            color: #d32f2f;
-            font-size: 12px;
-            margin-top: 4px;
-        }
-
-        .form-buttons button {
-            flex: 1;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 14px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-submit {
-            background-color: #50b243;
-            color: white;
-        }
-
-        .btn-submit:hover {
-            background-color: #3a8530;
-        }
-
-        .btn-cancel {
-            background-color: #e0e0e0;
-            color: #333;
-        }
-
-        .btn-cancel:hover {
-            background-color: #d0d0d0;
         }
     </style>
 </head>
@@ -550,264 +311,70 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <img src="LVD.jpg" alt="Lekvrij Dak Logo">
+            <img src="https://lekvrijdak.nl/wp-content/uploads/2023/12/new-768x384.png" alt="Lekvrij Dak Logo">
         </div>
     </section>
 
     <!-- Services Section -->
     <section class="services">
-        <h2>Onze diensten</h2>
+        <h2>Onze Diensten</h2>
         <div class="services-grid">
             <div class="service-card">
-                <h3>Platte daken</h3>
-                <p>Professionele toepassing van bitumineuze membranen en kunststof dakbedekkingssystemen. Wij waarborgen optimale waterdichtheid, vorstbestandigheid en duurzaamheid van uw platte daken met vakkundige verwerking van dakdoorbrekingen en randen.</p>
+                <h3>Platte Daken</h3>
+                <p>Professionele vernieuwing en onderhoud van platte daken. Volledig waterdicht met moderne materialen voor langdurige duurzaamheid.</p>
             </div>
 
             <div class="service-card">
                 <h3>Dakpannen</h3>
-                <p>Specialistische plaatsing en vervanging van keramische en betonnen dakpannen. Wij verzekeren juiste hechting, onderliggende laagafwerking en correcte nageling voor maximale lekvrijheid en weerbestendigheid tegen extreme weersomstandigheden.</p>
+                <p>Vakkundige plaatsing en vervanging van dakpannen. Hoogwaardige materialen voor een stevig en mooi dak.</p>
             </div>
 
             <div class="service-card">
                 <h3>Dakgoten</h3>
-                <p>Installatie van duurzame afvoersystemen in zink, aluminium of kunststof. Wij hanteren de juiste hellingen, kolkplaatsing en verbindingstechnieken voor optimale waterafvoering en preventie van stagnatie en vervuiling.</p>
+                <p>Installatie en reparatie van dakgoten en afvoersystemen. Zorgt voor effectieve waterafvoer en bescherming van uw pand.</p>
             </div>
 
             <div class="service-card">
                 <h3>Dakisolatie</h3>
-                <p>Toepassing van hoogwaardig isolatiemateriaal met optimale thermische weerstand (R-waarde). Wij borgen juiste dampwering, vochtregulering en ventilatie voor betere energieprestatie en voorkoming van condensatie.</p>
+                <p>Energie-efficiënte isolatieoplossingen. Verbeter uw energieprestaties en geniet van lagere stookkosten.</p>
             </div>
         </div>
         <div style="text-align: center; margin-top: 40px;">
-            <button class="cta-button" onclick="handleQuoteRequest()">Offerte aanvragen</button>
+            <button class="cta-button" onclick="handleQuoteRequest()">Offerte Aanvragen</button>
         </div>
     </section>
-
-    <!-- Green Divider -->
-    <div class="green-divider"></div>
 
     <!-- Google Reviews Section -->
-    <section class="reviews">
-        <h2>Google reviews</h2>
-        <div class="reviews-scroll">
-            <div class="review-card">
-                <div class="review-header">
-                    <span class="review-name">Michael Scully</span>
-                    <span class="review-stars">★★★★★</span>
-                </div>
-                <p class="review-text">Jan is een fijne gesprekspartner die doet wat hij zegt en je ontzorgt. Het dak compleet vernieuwd in een week tijd. Het team werkt hard en goed. Fijne, open en transparante communicatie. Wij bevelen Lekvrij Dak zeker aan!</p>
-                <span class="review-date">Recent</span>
-            </div>
-
-            <div class="review-card">
-                <div class="review-header">
-                    <span class="review-name">Roland L</span>
-                    <span class="review-stars">★★★★★</span>
-                </div>
-                <p class="review-text">Nieuw dak laten leggen na lekkage. Vanaf offerte tot uitvoering super geregeld. Echt vakwerk afgeleverd. Alles werd steeds overlegd als er wat wijzigde. Jan en collega's bedankt!</p>
-                <span class="review-date">4 maanden geleden</span>
-            </div>
-
-            <div class="review-card">
-                <div class="review-header">
-                    <span class="review-name">Marja Nijhoff</span>
-                    <span class="review-stars">★★★★★</span>
-                </div>
-                <p class="review-text">Had lekkage, en Lekvrij Dak heeft dit super opgelost. Zeer vakkundig, klantvriendelijk en meedenkend. Heel blij met het nieuwe dak. Een aanrader!</p>
-                <span class="review-date">4 maanden geleden</span>
-            </div>
-
-            <div class="review-card">
-                <div class="review-header">
-                    <span class="review-name">Sjors Verdonck</span>
-                    <span class="review-stars">★★★★★</span>
-                </div>
-                <p class="review-text">Uitstekende ervaring klus geklaard. Ging snel (binnen 2 dagen), erg vriendelijk en netjes gewerkt. Alles mooi afgewerkt.</p>
-                <span class="review-date">1 jaar geleden</span>
-            </div>
-
-            <div class="review-card">
-                <div class="review-header">
-                    <span class="review-name">Bas</span>
-                    <span class="review-stars">★★★★★</span>
-                </div>
-                <p class="review-text">Topservice! Jan is eerlijk, betrouwbaar en zeer vriendelijk. Na veel problemen met andere dakmannen, eindelijk een fatsoenlijke. Aanrader!</p>
-                <span class="review-date">4 maanden geleden</span>
-            </div>
-
-            <div class="review-card">
-                <div class="review-header">
-                    <span class="review-name">Harold Taal</span>
-                    <span class="review-stars">★★★★★</span>
-                </div>
-                <p class="review-text">Vakkundige, efficiënte en zeer klantgerichte aanpak. Jan is ook zeer transparant in zijn adviezen en kosten. Dat geeft vertrouwen!</p>
-                <span class="review-date">10 maanden geleden</span>
-            </div>
-
-            <div class="review-card">
-                <div class="review-header">
-                    <span class="review-name">Henk Fritscheck</span>
-                    <span class="review-stars">★★★★★</span>
-                </div>
-                <p class="review-text">Vriendelijk, professioneel en heel snel. Prima vakwerk bij het voorzien van mijn uitbouw met nieuw bitumen dak. Uitstekend gedaan!</p>
-                <span class="review-date">1 jaar geleden</span>
-            </div>
-
-            <div class="review-card">
-                <div class="review-header">
-                    <span class="review-name">Gertjan Frijlink</span>
-                    <span class="review-stars">★★★★★</span>
-                </div>
-                <p class="review-text">Ontzettend tevreden over de dienstverlening. Platte dak vervangen en dat is vlekkeloos verlopen. Communicatie was helder, afspraken nagekomen!</p>
-                <span class="review-date">11 maanden geleden</span>
-            </div>
-
-            <div class="review-card">
-                <div class="review-header">
-                    <span class="review-name">Frank Kleijs</span>
-                    <span class="review-stars">★★★★★</span>
-                </div>
-                <p class="review-text">Vrijdag nieuw dakje op schuur geplaatst ziet er goed uit. Prima vakmensen die hun werk serieus nemen!</p>
-                <span class="review-date">6 maanden geleden</span>
-            </div>
-
-            <div class="review-card">
-                <div class="review-header">
-                    <span class="review-name">Ruud van Wijk</span>
-                    <span class="review-stars">★★★★★</span>
-                </div>
-                <p class="review-text">Compleet dak vernieuwd. Grote klus in 4 dagen geklaard door 2 prima vakmannen. Alles keurig opgeruimd. Geen spijt van mijn keuze!</p>
-                <span class="review-date">1 jaar geleden</span>
-            </div>
+    <section class="google-reviews">
+        <h2>Google Reviews</h2>
+        <p class="google-reviews-subtitle">Dit is een selectie van de 71 recente reviews op Google Review</p>
+        <div class="google-reviews-link">
+            <a href="https://www.google.com/maps/place/Lekvrij+Dak+B.V." target="_blank" rel="noopener noreferrer">
+                <svg class="google-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 6v6m0 0v6m0-6h6m0 0h-6"></path>
+                </svg>
+                Bekijk alle reviews op Google
+            </a>
         </div>
     </section>
-
-    <!-- Quote Request Modal -->
-    <div id="quoteModal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeQuoteModal()">&times;</button>
-            <div class="modal-header" id="modalTitle">Offerte aanvraag</div>
-            <form id="quoteForm" onsubmit="submitQuoteForm(event)">
-                <div class="form-group">
-                    <label for="name">Naam *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="phone">Telefoon</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email">
-                    </div>
-                </div>
-                <div id="contactError" class="form-error"></div>
-
-                <div class="form-group">
-                    <label for="city">Woonplaats *</label>
-                    <input type="text" id="city" name="city" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="remarks">Opmerking *</label>
-                    <textarea id="remarks" name="remarks" required></textarea>
-                </div>
-
-                <div class="form-buttons">
-                    <button type="submit" class="btn-submit">Versturen</button>
-                    <button type="button" class="btn-cancel" onclick="closeQuoteModal()">Annuleren</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
     <!-- Contact Section -->
     <section class="contact">
         <div class="contact-content">
-            <h2>Neem contact met ons op</h2>
-
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <div class="contact-item-icon">📞</div>
-                    <div class="contact-item-label">BELLEN</div>
-                    <div class="contact-item-value"><a href="tel:+31612466941">+31 612 466 941</a></div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-item-icon" onclick="handleContactForm()" style="cursor: pointer;">✉️</div>
-                    <div class="contact-item-label">CONTACT</div>
-                    <button class="cta-button" style="width: 100%; margin: 12px 0 0 0; padding: 12px 20px; font-size: 14px;" onclick="handleContactForm()">Contactformulier</button>
-                </div>
-
-                <div class="contact-hours-box">
-                    <strong>OPENINGSTIJDEN</strong>
-                    <p>Maandag t/m Zaterdag: 08:00 - 18:00</p>
-                    <p>Zondag: Alleen spoedgevallen</p>
-                    <p style="margin-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.3); padding-top: 12px;"><strong>KVK: 92210686</strong></p>
-                </div>
+            <h2>Contact</h2>
+            <p><strong>Telefoon:</strong> +31 612 466 941</p>
+            <p><strong>Email:</strong> <a href="mailto:info@lekvrijdak.nl" style="color: white; text-decoration: none;">info@lekvrijdak.nl</a></p>
+            <p><strong>Uren:</strong> Maandag - Zaterdag 08:00 - 18:00</p>
+            <div class="contact-hours">
+                <strong>Zondag: Alleen noodgevallen</strong>
             </div>
         </div>
     </section>
 
     <script>
         function handleQuoteRequest() {
-            openFormModal('Offerte aanvraag', 'quote');
-        }
-
-        function handleContactForm() {
-            openFormModal('Contact opnemen met Lekvrij Dak', 'contact');
-        }
-
-        function openFormModal(title, type) {
-            document.getElementById('modalTitle').textContent = title;
-            document.getElementById('quoteForm').dataset.type = type;
-            document.getElementById('remarks').value = '';
-            document.getElementById('quoteModal').classList.add('active');
-        }
-
-        function closeQuoteModal() {
-            document.getElementById('quoteModal').classList.remove('active');
-        }
-
-        function submitQuoteForm(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
-            const city = document.getElementById('city').value;
-            const remarks = document.getElementById('remarks').value;
-            const contactError = document.getElementById('contactError');
-            const formType = document.getElementById('quoteForm').dataset.type;
-
-            // Validate that at least phone or email is provided
-            if (!phone && !email) {
-                contactError.textContent = 'Vul alstublieft telefoon of email in';
-                return;
-            }
-
-            contactError.textContent = '';
-
-            const subject = formType === 'quote' ? 'Offerte Aanvraag' : 'Contactformulier';
-            const body = `Naam: ${name}%0A${phone ? `Telefoon: ${phone}%0A` : ''}${email ? `Email: ${email}%0A` : ''}Woonplaats: ${city}%0A%0AOpmerking:%0A${remarks}`;
-
-            window.location.href = `mailto:info@lekvrijdak.nl?subject=${subject}&body=${body}`;
-
-            // Reset form
-            document.getElementById('quoteForm').reset();
-            document.getElementById('remarks').value = '';
-            closeQuoteModal();
-        }
-
-        // Close modal when clicking outside of it
-        window.onclick = function(event) {
-            const modal = document.getElementById('quoteModal');
-            if (event.target == modal) {
-                closeQuoteModal();
-            }
+            window.location.href = 'mailto:info@lekvrijdak.nl?subject=Offerte Aanvraag&body=Hallo,%0A%0AIk ben geïnteresseerd in een offerte voor uw diensten.%0A%0AMet vriendelijke groet';
         }
     </script>
 </body>
