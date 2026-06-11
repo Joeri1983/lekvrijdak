@@ -212,8 +212,8 @@
 
         .project-image {
             width: 100%;
-            height: 160px;
-            background-color: #f0f0f0;
+            height: 30px;
+            background-color: #50b243;
         }
 
         .project-card h3 {
@@ -243,7 +243,7 @@
 
         /* Google Reviews Section */
         .reviews {
-            max-width: 700px;
+            max-width: 875px;
             margin: 60px auto;
             padding: 0 20px;
         }
@@ -295,15 +295,14 @@
 
         .reviews-scroll {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             gap: 20px;
-            max-height: 260px;
-            overflow-y: auto;
-            padding-right: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
         }
 
         .reviews-scroll::-webkit-scrollbar {
-            width: 8px;
+            height: 8px;
         }
 
         .reviews-scroll::-webkit-scrollbar-track {
@@ -322,6 +321,12 @@
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             flex-shrink: 0;
+            min-width: 220px;
+            width: 220px;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .review-header {
@@ -840,42 +845,42 @@
         <p class="projects-intro">Een selectie van onze recent voltooide projecten</p>
         <div class="projects-grid">
             <div class="project-card">
-                <div class="project-image" style="background: linear-gradient(135deg, #50b243 0%, #3a8530 100%);"></div>
+                <div class="project-image"></div>
                 <h3>Platte dak vernieuwing - Woonhuis Amersfoort</h3>
                 <p>Compleet nieuw bitumineus dakbedekkingssysteem met isolatie aangebracht. Duurzaam, waterdicht en energiebewust.</p>
                 <span class="project-type">Platte daken</span>
             </div>
 
             <div class="project-card">
-                <div class="project-image" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);"></div>
+                <div class="project-image"></div>
                 <h3>Dakpannen restauratie - Landhuis Geldrop</h3>
                 <p>Vakkundig vervangen van beschadigde en versleten dakpannen met periode-passende keramische tegels.</p>
                 <span class="project-type">Dakpannen</span>
             </div>
 
             <div class="project-card">
-                <div class="project-image" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);"></div>
+                <div class="project-image"></div>
                 <h3>Dakgoten renovatie - Bedrijfspand Eindhoven</h3>
                 <p>Installatie van kunststof afvoersysteem met optimale hellingen en kolkplaatsing voor perfecte waterafvoering.</p>
                 <span class="project-type">Dakgoten</span>
             </div>
 
             <div class="project-card">
-                <div class="project-image" style="background: linear-gradient(135deg, #f39c12 0%, #d68910 100%);"></div>
+                <div class="project-image"></div>
                 <h3>Dakisolatie upgrade - Schoolgebouw Utrechtse Heuvelrug</h3>
                 <p>Thermische isolatie aangebracht voor betere energieprestatie en verlaging van onderhoudskosten.</p>
                 <span class="project-type">Dakisolatie</span>
             </div>
 
             <div class="project-card">
-                <div class="project-image" style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);"></div>
+                <div class="project-image"></div>
                 <h3>Groen dak installatie - Kantoor Amsterdam</h3>
                 <p>Ecologische groendakoplossing met vegetatie, duurzame waterafvoering en natuurwaarde.</p>
                 <span class="project-type">Groendak</span>
             </div>
 
             <div class="project-card">
-                <div class="project-image" style="background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);"></div>
+                <div class="project-image"></div>
                 <h3>Daklekreparatie - Wooncomplex Tilburg</h3>
                 <p>Inspectierapport, oorzaakanalyse en permanente reparatie van persistente lekkage in plat dak.</p>
                 <span class="project-type">Reparatie</span>
