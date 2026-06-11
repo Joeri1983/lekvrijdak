@@ -686,7 +686,7 @@
     <div id="quoteModal" class="modal">
         <div class="modal-content">
             <button class="close-modal" onclick="closeQuoteModal()">&times;</button>
-            <div class="modal-header">Offerte aanvraag</div>
+            <div class="modal-header" id="modalTitle">Offerte aanvraag</div>
             <form id="quoteForm" onsubmit="submitQuoteForm(event)">
                 <div class="form-group">
                     <label for="name">Naam *</label>
@@ -713,7 +713,7 @@
 
                 <div class="form-group">
                     <label for="remarks">Opmerking *</label>
-                    <textarea id="remarks" name="remarks" required>Graag zou ik een offerte willen aanvragen voor de volgende werkzaamheden .......................</textarea>
+                    <textarea id="remarks" name="remarks" required></textarea>
                 </div>
 
                 <div class="form-buttons">
@@ -737,9 +737,9 @@
                 </div>
 
                 <div class="contact-item">
-                    <div class="contact-item-icon">✉️</div>
-                    <div class="contact-item-label">EMAIL</div>
-                    <div class="contact-item-value"><a href="mailto:info@lekvrijdak.nl">info@lekvrijdak.nl</a></div>
+                    <div class="contact-item-icon" onclick="handleContactForm()" style="cursor: pointer;">✉️</div>
+                    <div class="contact-item-label">CONTACT</div>
+                    <button class="cta-button" style="width: 100%; margin: 12px 0 0 0; padding: 12px 20px; font-size: 14px;" onclick="handleContactForm()">Contactformulier</button>
                 </div>
 
                 <div class="contact-hours-box">
@@ -754,6 +754,17 @@
 
     <script>
         function handleQuoteRequest() {
+            openFormModal('Offerte aanvraag', 'quote');
+        }
+
+        function handleContactForm() {
+            openFormModal('Contact opnemen met Lekvrij Dak', 'contact');
+        }
+
+        function openFormModal(title, type) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('quoteForm').dataset.type = type;
+            document.getElementById('remarks').value = '';
             document.getElementById('quoteModal').classList.add('active');
         }
 
@@ -770,6 +781,7 @@
             const city = document.getElementById('city').value;
             const remarks = document.getElementById('remarks').value;
             const contactError = document.getElementById('contactError');
+            const formType = document.getElementById('quoteForm').dataset.type;
 
             // Validate that at least phone or email is provided
             if (!phone && !email) {
@@ -779,14 +791,14 @@
 
             contactError.textContent = '';
 
-            const subject = 'Offerte Aanvraag';
+            const subject = formType === 'quote' ? 'Offerte Aanvraag' : 'Contactformulier';
             const body = `Naam: ${name}%0A${phone ? `Telefoon: ${phone}%0A` : ''}${email ? `Email: ${email}%0A` : ''}Woonplaats: ${city}%0A%0AOpmerking:%0A${remarks}`;
 
             window.location.href = `mailto:info@lekvrijdak.nl?subject=${subject}&body=${body}`;
 
             // Reset form
             document.getElementById('quoteForm').reset();
-            document.getElementById('remarks').value = 'Graag zou ik een offerte willen aanvragen voor de volgende werkzaamheden ...............................';
+            document.getElementById('remarks').value = '';
             closeQuoteModal();
         }
 
