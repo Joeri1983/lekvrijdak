@@ -398,6 +398,146 @@
                 gap: 20px;
             }
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+
+        .modal-header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #999;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-modal:hover {
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #50b243;
+            box-shadow: 0 0 0 3px rgba(80, 178, 67, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .form-error {
+            color: #d32f2f;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .form-buttons button {
+            flex: 1;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit {
+            background-color: #50b243;
+            color: white;
+        }
+
+        .btn-submit:hover {
+            background-color: #3a8530;
+        }
+
+        .btn-cancel {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        .btn-cancel:hover {
+            background-color: #d0d0d0;
+        }
     </style>
 </head>
 <body>
@@ -410,10 +550,10 @@
 
     <!-- Services Section -->
     <section class="services">
-        <h2>Onze Diensten</h2>
+        <h2>Onze diensten</h2>
         <div class="services-grid">
             <div class="service-card">
-                <h3>Platte Daken</h3>
+                <h3>Platte daken</h3>
                 <p>Professionele toepassing van bitumineuze membranen en kunststof dakbedekkingssystemen. Wij waarborgen optimale waterdichtheid, vorstbestandigheid en duurzaamheid van uw platte daken met vakkundige verwerking van dakdoorbrekingen en randen.</p>
             </div>
 
@@ -433,7 +573,7 @@
             </div>
         </div>
         <div style="text-align: center; margin-top: 40px;">
-            <button class="cta-button" onclick="handleQuoteRequest()">Offerte Aanvragen</button>
+            <button class="cta-button" onclick="handleQuoteRequest()">Offerte aanvragen</button>
         </div>
     </section>
 
@@ -442,7 +582,7 @@
 
     <!-- Google Reviews Section -->
     <section class="reviews">
-        <h2>Google Reviews</h2>
+        <h2>Google reviews</h2>
         <div class="reviews-scroll">
             <div class="review-card">
                 <div class="review-header">
@@ -536,6 +676,48 @@
         </div>
     </section>
 
+    <!-- Quote Request Modal -->
+    <div id="quoteModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeQuoteModal()">&times;</button>
+            <div class="modal-header">Offerte aanvraag</div>
+            <form id="quoteForm" onsubmit="submitQuoteForm(event)">
+                <div class="form-group">
+                    <label for="name">Naam *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Telefoon</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                </div>
+                <div id="contactError" class="form-error"></div>
+
+                <div class="form-group">
+                    <label for="city">Woonplaats *</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="remarks">Opmerking *</label>
+                    <textarea id="remarks" name="remarks" required>Graag zou ik een offerte willen aanvragen voor de volgende werkzaamheden .......................</textarea>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn-submit">Versturen</button>
+                    <button type="button" class="btn-cancel" onclick="closeQuoteModal()">Annuleren</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Contact Section -->
     <section class="contact">
         <div class="contact-content">
@@ -558,6 +740,7 @@
                     <strong>OPENINGSTIJDEN</strong>
                     <p>Maandag t/m Zaterdag: 08:00 - 18:00</p>
                     <p>Zondag: Alleen spoedgevallen</p>
+                    <p style="margin-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.3); padding-top: 12px;"><strong>KVK: 92210686</strong></p>
                 </div>
             </div>
         </div>
@@ -565,7 +748,48 @@
 
     <script>
         function handleQuoteRequest() {
-            window.location.href = 'mailto:info@lekvrijdak.nl?subject=Offerte Aanvraag&body=Hallo,%0A%0AIk ben geïnteresseerd in een offerte voor uw diensten.%0A%0AMet vriendelijke groet';
+            document.getElementById('quoteModal').classList.add('active');
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.remove('active');
+        }
+
+        function submitQuoteForm(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const city = document.getElementById('city').value;
+            const remarks = document.getElementById('remarks').value;
+            const contactError = document.getElementById('contactError');
+
+            // Validate that at least phone or email is provided
+            if (!phone && !email) {
+                contactError.textContent = 'Vul alstublieft telefoon of email in';
+                return;
+            }
+
+            contactError.textContent = '';
+
+            const subject = 'Offerte Aanvraag';
+            const body = `Naam: ${name}%0A${phone ? `Telefoon: ${phone}%0A` : ''}${email ? `Email: ${email}%0A` : ''}Woonplaats: ${city}%0A%0AOpmerking:%0A${remarks}`;
+
+            window.location.href = `mailto:info@lekvrijdak.nl?subject=${subject}&body=${body}`;
+
+            // Reset form
+            document.getElementById('quoteForm').reset();
+            document.getElementById('remarks').value = 'Graag zou ik een offerte willen aanvragen voor de volgende werkzaamheden ...............................';
+            closeQuoteModal();
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('quoteModal');
+            if (event.target == modal) {
+                closeQuoteModal();
+            }
         }
     </script>
 </body>
