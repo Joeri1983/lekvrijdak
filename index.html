@@ -3,8 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lekvrij Dak | Dakbedekkingsbedrijf</title>
-    <meta name="description" content="Professionele dakbedekking en isolatie. Plat dak vernieuwen, isoleren, inspectie en groendak.">
+    <title>Lekvrij Dak | Professionele Dakbedekkingsbedrijf</title>
+    <meta name="description" content="Professionele dakbedekking en isolatie in Nederland. Gespecialiseerd in platte daken, dakpannen, dakisolatie en groendaken. Over 15 jaar ervaring met 500+ voltooide projecten.">
+    <meta property="og:title" content="Lekvrij Dak | Professionele Dakbedekkingsbedrijf">
+    <meta property="og:description" content="Professionele dakbedekking en isolatie. Plat dak vernieuwen, isoleren, inspectie en groendak met 15+ jaar vakkundigheid.">
+    <meta property="og:type" content="business.business">
+    <meta name="theme-color" content="#50b243">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Lekvrij Dak",
+        "description": "Professioneel dakbedekkingsbedrijf gespecialiseerd in platte daken, dakpannen, dakisolatie en groendaken",
+        "url": "https://www.lekvrijdak.nl",
+        "telephone": "+31612466941",
+        "email": "info@lekvrijdak.nl",
+        "areaServed": "NL",
+        "priceRange": "$$",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "10"
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "opens": "08:00",
+                "closes": "18:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Sunday",
+                "opens": "00:00",
+                "closes": "00:00"
+            }
+        ]
+    }
+    </script>
 
     <style>
         /* Reset and Base Styles */
@@ -211,10 +250,6 @@
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
         }
 
-        .project-image {
-            display: none;
-        }
-
         .project-card h3 {
             color: #333;
             margin: 16px 16px 8px 16px;
@@ -372,11 +407,11 @@
             color: white;
             padding: 60px 20px;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 60px;
         }
 
         .contact-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -388,27 +423,42 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.1fr 2fr 1.1fr;
             gap: 40px;
             margin-bottom: 40px;
+            align-items: center;
         }
 
         .contact-item {
-            background-color: rgba(255, 255, 255, 0.15);
-            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.12);
+            padding: 40px 30px;
             border-radius: 12px;
             backdrop-filter: blur(10px);
+            transition: background-color 0.3s ease;
         }
 
-        .contact-item-icon {
-            font-size: 32px;
-            margin-bottom: 15px;
+        .contact-item:hover {
+            background-color: rgba(255, 255, 255, 0.18);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 20px auto;
+        }
+
+        .contact-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: white;
+            stroke: white;
+            stroke-width: 1.5;
         }
 
         .contact-item-label {
             font-size: 12px;
             opacity: 0.85;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             letter-spacing: 2px;
             font-weight: 600;
         }
@@ -422,31 +472,33 @@
         .contact-item a {
             color: white;
             text-decoration: none;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.6);
             transition: all 0.3s ease;
+            display: inline-block;
         }
 
         .contact-item a:hover {
-            border-bottom: 2px solid white;
+            border-bottom-color: white;
         }
 
         .contact-hours-box {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.12);
+            padding: 40px 30px;
             border-radius: 12px;
-            grid-column: 1 / -1;
+            backdrop-filter: blur(10px);
         }
 
         .contact-hours-box strong {
             display: block;
             font-size: 12px;
             opacity: 0.85;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             letter-spacing: 2px;
+            font-weight: 600;
         }
 
         .contact-hours-box p {
-            margin: 10px 0;
+            margin: 12px 0;
             font-size: 16px;
         }
 
@@ -465,7 +517,6 @@
             }
         }
 
-        /* Responsive Design */
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero {
@@ -770,18 +821,178 @@
         .btn-cancel:hover {
             background-color: #d0d0d0;
         }
+
+        .btn-contact {
+            width: 100%;
+            margin: 12px 0 0 0;
+            padding: 12px 20px;
+            font-size: 14px;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 15px auto;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .contact-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: white;
+            stroke: white;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: white;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 18px;
+            color: #333;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .logo-accent {
+            color: #50b243;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            display: block;
+        }
+
+        .nav-item a:hover {
+            color: #50b243;
+            border-bottom-color: #50b243;
+        }
+
+        .nav-item a.active {
+            color: #50b243;
+            border-bottom-color: #50b243;
+        }
+
+        .nav-cta-button {
+            background-color: #50b243;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-cta-button:hover {
+            background-color: #3a8530;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                height: 60px;
+            }
+
+            .logo {
+                font-size: 16px;
+            }
+
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .nav-item a {
+                font-size: 12px;
+            }
+
+            .nav-cta-button {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-menu {
+                gap: 0.5rem;
+            }
+
+            .nav-item a {
+                font-size: 11px;
+            }
+
+            .nav-cta-button {
+                padding: 8px 12px;
+                font-size: 11px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="#hero" class="logo"><img src="LVD.jpg" alt="Lekvrij Dak Logo" style="height: 50px; width: auto;"></a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#diensten">Diensten</a></li>
+                <li class="nav-item"><a href="#over-ons">Over ons</a></li>
+                <li class="nav-item"><a href="#projecten">Projecten</a></li>
+                <li class="nav-item"><a href="#reviews">Reviews</a></li>
+                <li class="nav-item"><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="nav-cta-button" onclick="handleQuoteRequest()">Offerte</button>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="hero-content">
             <img src="LVD.jpg" alt="Lekvrij Dak Logo">
+            <p class="hero-tagline">Voor een dak dat weer jaren meegaat</p>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services">
+    <section class="services" id="diensten">
         <h2>Onze diensten</h2>
         <div class="services-grid">
             <div class="service-card">
@@ -804,7 +1015,7 @@
                 <p>Toepassing van hoogwaardig isolatiemateriaal met optimale thermische weerstand (R-waarde). Wij borgen juiste dampwering, vochtregulering en ventilatie voor betere energieprestatie en voorkoming van condensatie.</p>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 40px;">
+        <div style="text-align: center; margin-top: 50px;">
             <button class="cta-button" onclick="handleQuoteRequest()">Offerte aanvragen</button>
         </div>
     </section>
@@ -813,7 +1024,7 @@
     <div class="green-divider"></div>
 
     <!-- About Us Section -->
-    <section class="about">
+    <section class="about" id="over-ons">
         <div class="about-content">
             <h2>Over ons</h2>
             <p>Lekvrij Dak is een ervaren dakbedekkingsbedrijf met meer dan 15 jaar expertise in het vakgebied. Wij zijn gespecialiseerd in het vervangen, repareren en isoleren van alle soorten daken. Ons team bestaat uit gecertificeerde vakmensen die met passie en precisie werken.</p>
@@ -839,47 +1050,41 @@
     <div class="green-divider"></div>
 
     <!-- Projects Section -->
-    <section class="projects">
+    <section class="projects" id="projecten">
         <h2>Projecten</h2>
         <p class="projects-intro">Een selectie van onze recent voltooide projecten</p>
         <div class="projects-grid">
             <div class="project-card">
-                <div class="project-image"></div>
                 <h3>Platte dak vernieuwing - Woonhuis Amersfoort</h3>
                 <p>Compleet nieuw bitumineus dakbedekkingssysteem met isolatie aangebracht. Duurzaam, waterdicht en energiebewust.</p>
                 <span class="project-type">Platte daken</span>
             </div>
 
             <div class="project-card">
-                <div class="project-image"></div>
                 <h3>Dakpannen restauratie - Landhuis Geldrop</h3>
                 <p>Vakkundig vervangen van beschadigde en versleten dakpannen met periode-passende keramische tegels.</p>
                 <span class="project-type">Dakpannen</span>
             </div>
 
             <div class="project-card">
-                <div class="project-image"></div>
                 <h3>Dakgoten renovatie - Bedrijfspand Eindhoven</h3>
                 <p>Installatie van kunststof afvoersysteem met optimale hellingen en kolkplaatsing voor perfecte waterafvoering.</p>
                 <span class="project-type">Dakgoten</span>
             </div>
 
             <div class="project-card">
-                <div class="project-image"></div>
                 <h3>Dakisolatie upgrade - Schoolgebouw Utrechtse Heuvelrug</h3>
                 <p>Thermische isolatie aangebracht voor betere energieprestatie en verlaging van onderhoudskosten.</p>
                 <span class="project-type">Dakisolatie</span>
             </div>
 
             <div class="project-card">
-                <div class="project-image"></div>
                 <h3>Groen dak installatie - Kantoor Amsterdam</h3>
                 <p>Ecologische groendakoplossing met vegetatie, duurzame waterafvoering en natuurwaarde.</p>
                 <span class="project-type">Groendak</span>
             </div>
 
             <div class="project-card">
-                <div class="project-image"></div>
                 <h3>Daklekreparatie - Wooncomplex Tilburg</h3>
                 <p>Inspectierapport, oorzaakanalyse en permanente reparatie van persistente lekkage in plat dak.</p>
                 <span class="project-type">Reparatie</span>
@@ -891,7 +1096,7 @@
     <div class="green-divider"></div>
 
     <!-- Google Reviews Section -->
-    <section class="reviews">
+    <section class="reviews" id="reviews">
         <h2>Google reviews</h2>
         <p class="reviews-subtitle">Hieronder een selectie van onze tevreden klanten</p>
         <div class="reviews-scroll">
@@ -988,9 +1193,9 @@
     </section>
 
     <!-- Quote Request Modal -->
-    <div id="quoteModal" class="modal">
+    <div id="quoteModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-content">
-            <button class="close-modal" onclick="closeQuoteModal()">&times;</button>
+            <button class="close-modal" onclick="closeQuoteModal()" aria-label="Sluit formulier">&times;</button>
             <div class="modal-header" id="modalTitle">Offerte aanvraag</div>
             <form id="quoteForm" onsubmit="submitQuoteForm(event)">
                 <div class="form-group">
@@ -1030,21 +1235,19 @@
     </div>
 
     <!-- Contact Section -->
-    <section class="contact">
+    <section class="contact" id="contact">
         <div class="contact-content">
             <h2>Neem contact met ons op</h2>
 
             <div class="contact-grid">
                 <div class="contact-item">
-                    <div class="contact-item-icon">📞</div>
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </div>
                     <div class="contact-item-label">BELLEN</div>
                     <div class="contact-item-value"><a href="tel:+31612466941">+31 612 466 941</a></div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-item-icon" onclick="handleContactForm()" style="cursor: pointer;">✉️</div>
-                    <div class="contact-item-label">CONTACT</div>
-                    <button class="cta-button" style="width: 100%; margin: 12px 0 0 0; padding: 12px 20px; font-size: 14px;" onclick="handleContactForm()">Contactformulier</button>
                 </div>
 
                 <div class="contact-hours-box">
@@ -1052,6 +1255,19 @@
                     <p>Maandag t/m Zaterdag: 08:00 - 18:00</p>
                     <p>Zondag: Alleen spoedgevallen</p>
                     <p style="margin-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.3); padding-top: 12px;"><strong>KVK: 92210686</strong></p>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon" onclick="handleContactForm()">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="6" width="20" height="12" rx="1" fill="none" stroke-width="2"/>
+                            <polygon points="2,6 12,14 22,6" fill="none" stroke-width="2"/>
+                            <line x1="2" y1="6" x2="12" y2="14" stroke-width="2"/>
+                            <line x1="22" y1="6" x2="12" y2="14" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="contact-item-label">CONTACT</div>
+                    <button class="cta-button btn-contact" onclick="handleContactForm()">Contactformulier</button>
                 </div>
             </div>
         </div>
@@ -1067,24 +1283,32 @@
         }
 
         function openFormModal(title, type) {
+            const modal = document.getElementById('quoteModal');
             document.getElementById('modalTitle').textContent = title;
             document.getElementById('quoteForm').dataset.type = type;
-            document.getElementById('remarks').value = '';
-            document.getElementById('quoteModal').classList.add('active');
+            document.getElementById('quoteForm').reset();
+            document.getElementById('contactError').textContent = '';
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
         }
 
         function closeQuoteModal() {
-            document.getElementById('quoteModal').classList.remove('active');
+            const modal = document.getElementById('quoteModal');
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = 'auto';
         }
 
         function submitQuoteForm(event) {
             event.preventDefault();
 
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
-            const city = document.getElementById('city').value;
-            const remarks = document.getElementById('remarks').value;
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const city = document.getElementById('city').value.trim();
+            const remarks = document.getElementById('remarks').value.trim();
             const contactError = document.getElementById('contactError');
             const formType = document.getElementById('quoteForm').dataset.type;
 
@@ -1096,24 +1320,79 @@
 
             contactError.textContent = '';
 
+            // For production: Replace this with Formspree integration
+            // Steps: 1) Create account at formspree.io
+            //        2) Set form action to "https://formspree.io/f/YOUR_FORM_ID"
+            //        3) Remove the manual submission logic below
+
             const subject = formType === 'quote' ? 'Offerte Aanvraag' : 'Contactformulier';
-            const body = `Naam: ${name}%0A${phone ? `Telefoon: ${phone}%0A` : ''}${email ? `Email: ${email}%0A` : ''}Woonplaats: ${city}%0A%0AOpmerking:%0A${remarks}`;
+            const body = `Naam: ${name}\n${phone ? `Telefoon: ${phone}\n` : ''}${email ? `Email: ${email}\n` : ''}Woonplaats: ${city}\n\nOpmerking:\n${remarks}`;
 
-            window.location.href = `mailto:info@lekvrijdak.nl?subject=${subject}&body=${body}`;
+            // Fallback to mailto (works on most devices)
+            window.location.href = `mailto:info@lekvrijdak.nl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-            // Reset form
-            document.getElementById('quoteForm').reset();
-            document.getElementById('remarks').value = '';
-            closeQuoteModal();
+            setTimeout(() => {
+                closeQuoteModal();
+            }, 500);
         }
 
         // Close modal when clicking outside of it
         window.onclick = function(event) {
             const modal = document.getElementById('quoteModal');
-            if (event.target == modal) {
+            if (event.target === modal) {
                 closeQuoteModal();
             }
         }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modal = document.getElementById('quoteModal');
+                if (modal.classList.contains('active')) {
+                    closeQuoteModal();
+                }
+            }
+        });
+
+        // Navigation active state on scroll
+        window.addEventListener('scroll', function() {
+            const navHeight = document.querySelector('nav').offsetHeight;
+            const sections = document.querySelectorAll('section[id]');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - (navHeight + 20);
+                if (window.pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-item a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for navigation links with navbar offset
+        document.querySelectorAll('.nav-item a, .logo').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const navHeight = document.querySelector('nav').offsetHeight;
+                        const targetPosition = target.offsetTop - (navHeight + 20);
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
