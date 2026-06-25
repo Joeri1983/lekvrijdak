@@ -928,7 +928,93 @@
             background-color: #3a8530;
         }
 
+        /* Mobile Menu */
+        .hamburger-icon {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .hamburger-icon span {
+            width: 24px;
+            height: 2px;
+            background-color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-icon.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger-icon.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-icon.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border-bottom: 1px solid #e0e0e0;
+            flex-direction: column;
+            z-index: 999;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            padding: 16px 20px;
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            background-color: #f9f9f9;
+            color: #50b243;
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu .nav-cta-button {
+            margin: 12px 12px;
+            border-radius: 6px;
+        }
+
         @media (max-width: 768px) {
+            .nav-container {
+                position: relative;
+            }
+
+            .hamburger-icon {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-cta-button {
+                display: none;
+            }
             .nav-container {
                 height: 60px;
             }
@@ -980,6 +1066,19 @@
                 <li class="nav-item"><a href="#contact">Contact</a></li>
             </ul>
             <button class="nav-cta-button" onclick="handleQuoteRequest()">Offerte</button>
+            <button class="hamburger-icon" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#diensten" onclick="closeMobileMenu()">Diensten</a>
+            <a href="#over-ons" onclick="closeMobileMenu()">Over ons</a>
+            <a href="#projecten" onclick="closeMobileMenu()">Projecten</a>
+            <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
+            <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+            <button class="nav-cta-button" onclick="handleQuoteRequest(); closeMobileMenu();">Offerte aanvragen</button>
         </div>
     </nav>
 
@@ -1373,6 +1472,29 @@
                     link.classList.add('active');
                 }
             });
+        });
+
+        // Mobile menu functions
+        function toggleMobileMenu() {
+            const hamburger = document.getElementById('hamburgerBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const hamburger = document.getElementById('hamburgerBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            if (!nav.contains(event.target)) {
+                closeMobileMenu();
+            }
         });
 
         // Smooth scroll for navigation links with navbar offset
