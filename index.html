@@ -1339,16 +1339,9 @@
                     <input type="text" id="name" name="name" required>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="phone">Telefoon</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email">
-                    </div>
+                <div class="form-group">
+                    <label for="contact">Telefoon of email *</label>
+                    <input type="text" id="contact" name="contact" placeholder="Vul telefoon of email in" required>
                 </div>
                 <div id="contactError" class="form-error"></div>
 
@@ -1441,15 +1434,14 @@
             event.preventDefault();
 
             const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const email = document.getElementById('email').value.trim();
+            const contact = document.getElementById('contact').value.trim();
             const city = document.getElementById('city').value.trim();
             const remarks = document.getElementById('remarks').value.trim();
             const contactError = document.getElementById('contactError');
             const formType = document.getElementById('quoteForm').dataset.type;
 
-            // Validate that at least phone or email is provided
-            if (!phone && !email) {
+            // Validate that contact field is provided
+            if (!contact) {
                 contactError.textContent = 'Vul alstublieft telefoon of email in';
                 return;
             }
@@ -1462,7 +1454,7 @@
             //        3) Remove the manual submission logic below
 
             const subject = formType === 'quote' ? 'Offerte Aanvraag' : 'Contactformulier';
-            const body = `Naam: ${name}\n${phone ? `Telefoon: ${phone}\n` : ''}${email ? `Email: ${email}\n` : ''}Woonplaats: ${city}\n\nOpmerking:\n${remarks}`;
+            const body = `Naam: ${name}\nTelefoon of email: ${contact}\nWoonplaats: ${city}\n\nOpmerking:\n${remarks}`;
 
             // Fallback to mailto (works on most devices)
             window.location.href = `mailto:info@lekvrijdak.nl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
