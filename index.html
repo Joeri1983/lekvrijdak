@@ -1498,19 +1498,22 @@
         });
 
         // Smooth scroll for navigation links with navbar offset
-        document.querySelectorAll('.nav-item a, .logo').forEach(link => {
+        document.querySelectorAll('.nav-item a, .logo, .mobile-menu a').forEach(link => {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
                 if (href.startsWith('#')) {
                     e.preventDefault();
+                    closeMobileMenu();
                     const target = document.querySelector(href);
                     if (target) {
-                        const navHeight = document.querySelector('nav').offsetHeight;
-                        const targetPosition = target.offsetTop - (navHeight + 20);
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
+                        setTimeout(() => {
+                            const navHeight = document.querySelector('nav').offsetHeight;
+                            const targetPosition = target.offsetTop - (navHeight + 30);
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }, 100);
                     }
                 }
             });
