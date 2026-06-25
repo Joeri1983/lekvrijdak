@@ -1533,17 +1533,25 @@
                 if (href.startsWith('#')) {
                     e.preventDefault();
                     closeMobileMenu();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        setTimeout(() => {
+                    setTimeout(() => {
+                        const target = document.querySelector(href);
+                        if (target) {
                             const navHeight = document.querySelector('nav').offsetHeight;
-                            const targetPosition = target.offsetTop - (navHeight + 30);
+                            let targetPosition;
+
+                            // For contact section, scroll all the way to the bottom
+                            if (href === '#contact') {
+                                targetPosition = document.documentElement.scrollHeight - window.innerHeight;
+                            } else {
+                                targetPosition = target.offsetTop - navHeight - 30;
+                            }
+
                             window.scrollTo({
                                 top: targetPosition,
                                 behavior: 'smooth'
                             });
-                        }, 100);
-                    }
+                        }
+                    }, 100);
                 }
             });
         });
