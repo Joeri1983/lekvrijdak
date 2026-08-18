@@ -211,7 +211,7 @@
 
         .about-pillars {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: 1fr;
             gap: 14px;
             margin-top: 18px;
         }
@@ -223,6 +223,10 @@
             padding: 16px 20px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
         }
 
         .about-pillar:hover {
@@ -230,14 +234,29 @@
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
         }
 
-        .about-pillar strong {
+        .pillar-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: #50b243;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .pillar-body strong {
             display: block;
             color: #333;
             font-size: 15px;
+            font-weight: 600;
             margin-bottom: 6px;
         }
 
-        .about-pillar span {
+        .pillar-body span {
             color: #666;
             font-size: 14px;
             line-height: 1.6;
@@ -1296,20 +1315,32 @@
 
             <div class="about-pillars">
                 <div class="about-pillar">
-                    <strong>Kwaliteit</strong>
-                    <span>Het dak moet waterdicht en duurzaam zijn.</span>
+                    <div class="pillar-icon">✓</div>
+                    <div class="pillar-body">
+                        <strong>Kwaliteit</strong>
+                        <span>Het dak moet waterdicht en duurzaam zijn.</span>
+                    </div>
                 </div>
                 <div class="about-pillar">
-                    <strong>Optisch</strong>
-                    <span>Ons streven is om u trots te laten voelen als u naar uw dak kijkt.</span>
+                    <div class="pillar-icon">◎</div>
+                    <div class="pillar-body">
+                        <strong>Optisch</strong>
+                        <span>Ons streven is om u trots te laten voelen als u naar uw dak kijkt.</span>
+                    </div>
                 </div>
                 <div class="about-pillar">
-                    <strong>Prijs</strong>
-                    <span>Binnen uw wensen en de mogelijkheden zoeken we altijd naar de meest voordelige prijs voor u.</span>
+                    <div class="pillar-icon">€</div>
+                    <div class="pillar-body">
+                        <strong>Prijs</strong>
+                        <span>Binnen uw wensen en de mogelijkheden zoeken we altijd naar de meest voordelige prijs voor u.</span>
+                    </div>
                 </div>
                 <div class="about-pillar">
-                    <strong>Service</strong>
-                    <span>Wij geven altijd lange garanties op onze werkzaamheden. Twijfelt u ergens over of heeft u vragen, dan staan wij altijd paraat voor een gesprek of dak inspectie.</span>
+                    <div class="pillar-icon">★</div>
+                    <div class="pillar-body">
+                        <strong>Service</strong>
+                        <span>Wij geven altijd lange garanties op onze werkzaamheden. Twijfelt u ergens over of heeft u vragen, dan staan wij altijd paraat voor een gesprek of dak inspectie.</span>
+                    </div>
                 </div>
             </div>
 
