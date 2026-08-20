@@ -131,12 +131,30 @@
         }
 
         .services-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            flex-direction: row;
             gap: 24px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .services-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .services-grid::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 10px;
+        }
+
+        .services-grid::-webkit-scrollbar-thumb {
+            background: #50b243;
+            border-radius: 10px;
         }
 
         .service-card {
+            flex-shrink: 0;
+            width: 340px;
             background-color: white;
             border-radius: 8px;
             border-top: 4px solid #50b243;
@@ -740,12 +758,7 @@
                 margin-bottom: 30px;
             }
 
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .about-content h2 {
+.about-content h2 {
                 font-size: 24px;
                 margin-bottom: 24px;
             }
