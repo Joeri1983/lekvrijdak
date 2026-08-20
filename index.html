@@ -1809,7 +1809,7 @@
         const carousels = {};
 
         function initCarousel(name, trackId, dotsId, total) {
-            carousels[name] = { index: 0, total };
+            carousels[name] = { index: 0, total, dotsId };
             const dots = document.getElementById(dotsId);
             for (let i = 0; i < total; i++) {
                 const dot = document.createElement('button');
@@ -1818,10 +1818,25 @@
                 dot.onclick = () => goToSlide(name, i);
                 dots.appendChild(dot);
             }
+            // Attach swipe to the visible container (parent of track), not the track itself
             const track = document.getElementById(trackId);
-            let startX = 0;
-            track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-            track.addEventListener('touchend', e => {
+            const container = track.parentElement;
+            let startX = 0, startY = 0, dragging = false;
+            container.addEventListener('touchstart', e => {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                dragging = true;
+            }, { passive: true });
+            container.addEventListener('touchmove', e => {
+                if (!dragging) return;
+                const dx = Math.abs(e.touches[0].clientX - startX);
+                const dy = Math.abs(e.touches[0].clientY - startY);
+                // Only claim horizontal swipes; let vertical scrolls pass
+                if (dx > dy && dx > 10) e.preventDefault();
+            }, { passive: false });
+            container.addEventListener('touchend', e => {
+                if (!dragging) return;
+                dragging = false;
                 const diff = startX - e.changedTouches[0].clientX;
                 if (Math.abs(diff) > 40) moveCarousel(name, diff > 0 ? 1 : -1);
             }, { passive: true });
@@ -1834,7 +1849,7 @@
             const card = track.firstElementChild;
             const cardWidth = card.offsetWidth + 20;
             track.style.transform = `translateX(-${c.index * cardWidth}px)`;
-            document.getElementById(name + 'Dots').querySelectorAll('.carousel-dot').forEach((d, i) => {
+            document.getElementById(c.dotsId).querySelectorAll('.carousel-dot').forEach((d, i) => {
                 d.classList.toggle('active', i === c.index);
             });
         }
