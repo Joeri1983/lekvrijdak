@@ -571,21 +571,14 @@
             position: relative;
         }
 
-        .reviews-coverflow {
-            perspective: 1000px;
+        .reviews-scroll {
             overflow: hidden;
-            padding: 20px 0 30px;
-            position: relative;
         }
 
         .reviews-track {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0;
-            position: relative;
-            height: 260px;
-            transition: none;
+            gap: 20px;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .review-card {
@@ -595,16 +588,11 @@
             border-top: 4px solid #50b243;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             flex-shrink: 0;
-            width: 280px;
-            min-height: 220px;
-            max-height: 220px;
+            width: calc((100% - 2 * 20px) / 2.5);
+            min-height: 200px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            position: absolute;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease, box-shadow 0.5s ease;
-            cursor: pointer;
-            overflow: hidden;
         }
 
         .review-header {
@@ -1691,11 +1679,11 @@
         <p class="reviews-subtitle">Hieronder een selectie van onze tevreden klanten</p>
         <div class="reviews-carousel">
             <div class="carousel-controls">
-                <button class="carousel-btn" onclick="moveCoverflow(-1)" aria-label="Vorige"><svg viewBox="0 0 14 14"><polyline points="9,2 4,7 9,12"/></svg></button>
+                <button class="carousel-btn" onclick="moveCarousel('reviews',-1)" aria-label="Vorige"><svg viewBox="0 0 14 14"><polyline points="9,2 4,7 9,12"/></svg></button>
                 <div class="carousel-dots" id="reviewsDots"></div>
-                <button class="carousel-btn" onclick="moveCoverflow(1)" aria-label="Volgende"><svg viewBox="0 0 14 14"><polyline points="5,2 10,7 5,12"/></svg></button>
+                <button class="carousel-btn" onclick="moveCarousel('reviews',1)" aria-label="Volgende"><svg viewBox="0 0 14 14"><polyline points="5,2 10,7 5,12"/></svg></button>
             </div>
-            <div class="reviews-coverflow">
+            <div class="reviews-scroll">
                 <div class="reviews-track" id="reviewsTrack">
             <div class="review-card">
                 <div class="review-header">
@@ -1867,75 +1855,10 @@
 
     <script>
         // Shared carousel engine
-        // Reviews coverflow
-        let cfIndex = 0;
-        const cfTotal = 10;
-
-        function initCoverflow() {
-            updateCoverflow();
-            const dots = document.getElementById('reviewsDots');
-            for (let i = 0; i < cfTotal; i++) {
-                const d = document.createElement('button');
-                d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-                d.onclick = () => { cfIndex = i; updateCoverflow(); };
-                dots.appendChild(d);
-            }
-            const el = document.querySelector('.reviews-coverflow');
-            let tx = 0, dragging = false;
-
-            // Touch
-            el.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
-            el.addEventListener('touchend', e => {
-                const dx = e.changedTouches[0].clientX - tx;
-                if (Math.abs(dx) > 40) moveCoverflow(dx < 0 ? 1 : -1);
-            }, { passive: true });
-
-            // Mouse drag
-            el.addEventListener('mousedown', e => { tx = e.clientX; dragging = true; el.style.cursor = 'grabbing'; });
-            window.addEventListener('mousemove', e => { if (dragging) e.preventDefault(); });
-            window.addEventListener('mouseup', e => {
-                if (!dragging) return;
-                dragging = false;
-                el.style.cursor = 'grab';
-                const dx = e.clientX - tx;
-                if (Math.abs(dx) > 40) moveCoverflow(dx < 0 ? 1 : -1);
-            });
-            el.style.cursor = 'grab';
-        }
-
-        function updateCoverflow() {
-            const cards = document.querySelectorAll('#reviewsTrack .review-card');
-            const cardW = 280;
-            const gap = 30;
-            cards.forEach((card, i) => {
-                const offset = i - cfIndex;
-                const absOff = Math.abs(offset);
-                const sign = offset < 0 ? -1 : 1;
-                const rotY = Math.min(absOff, 2) * sign * 45;
-                const translateX = offset * (cardW * 0.55 + gap);
-                const scale = absOff === 0 ? 1 : absOff === 1 ? 0.82 : 0.65;
-                const tz = absOff === 0 ? 0 : -120 * absOff;
-                const opacity = absOff > 2 ? 0 : 1 - absOff * 0.15;
-                card.style.transform = `translateX(${translateX}px) translateZ(${tz}px) rotateY(${rotY}deg) scale(${scale})`;
-                card.style.opacity = opacity;
-                card.style.zIndex = 100 - absOff * 10;
-                card.style.pointerEvents = absOff > 2 ? 'none' : 'auto';
-                card.onclick = absOff > 0 ? () => { cfIndex = i; updateCoverflow(); } : null;
-            });
-            document.querySelectorAll('#reviewsDots .carousel-dot').forEach((d, i) => {
-                d.classList.toggle('active', i === cfIndex);
-            });
-        }
-
-        function moveCoverflow(dir) {
-            cfIndex = Math.max(0, Math.min(cfTotal - 1, cfIndex + dir));
-            updateCoverflow();
-        }
-
         const carousels = {};
 
-        function initCarousel(name, trackId, dotsId, total) {
-            carousels[name] = { index: 0, total, dotsId };
+        function initCarousel(name, trackId, dotsId, total, opts) {
+            carousels[name] = { index: 0, total, dotsId, peek: opts && opts.peek };
             const dots = document.getElementById(dotsId);
             for (let i = 0; i < total; i++) {
                 const dot = document.createElement('button');
@@ -1972,9 +1895,16 @@
             const c = carousels[name];
             c.index = Math.max(0, Math.min(index, c.total - 1));
             const track = document.getElementById(name + 'Track');
-            const card = track.firstElementChild;
-            const cardWidth = card.offsetWidth + 20;
-            track.style.transform = `translateX(-${c.index * cardWidth}px)`;
+
+            const gap = 20;
+            const cardWidth = track.firstElementChild.offsetWidth + gap;
+            const containerWidth = track.parentElement.offsetWidth;
+            const peekOffset = c.peek ? containerWidth * c.peek : 0;
+            let tx = -(c.index * cardWidth) + peekOffset;
+            const totalTrackW = c.total * cardWidth - gap;
+            tx = Math.max(Math.min(containerWidth - totalTrackW, 0), Math.min(0, tx));
+            track.style.transform = `translateX(${tx}px)`;
+
             document.getElementById(c.dotsId).querySelectorAll('.carousel-dot').forEach((d, i) => {
                 d.classList.toggle('active', i === c.index);
             });
@@ -1987,7 +1917,7 @@
 initCarousel('howsteps',  'howstepsTrack',  'howstepsDots',  6);
             initCarousel('services',  'servicesTrack',  'serviceDots',   4);
             initCarousel('projects',  'projectsTrack',  'projectsDots',  8);
-            initCoverflow();
+            initCarousel('reviews',   'reviewsTrack',   'reviewsDots',   10);
         });
 
         function handleQuoteRequest() {
