@@ -286,7 +286,7 @@
 
         .about-pillars {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 14px;
             margin-top: 18px;
         }
@@ -300,7 +300,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: row;
-            align-items: center;
+            align-items: flex-start;
             gap: 20px;
         }
 
@@ -338,14 +338,24 @@
         }
 
         /* How We Work steps */
-        .how-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .howsteps-carousel {
+            position: relative;
             margin-top: 8px;
         }
 
+        .how-steps {
+            overflow: hidden;
+        }
+
+        .howsteps-track {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         .how-step {
+            flex-shrink: 0;
+            width: calc((100% - 2 * 20px) / 2.5);
             display: flex;
             gap: 20px;
             align-items: flex-start;
@@ -1358,14 +1368,19 @@
 
             <div class="about-pillars">
                 <div class="about-pillar">
-                    <div class="pillar-icon">✓</div>
+                    <div class="pillar-icon">★</div>
                     <div class="pillar-body">
                         <strong>Kwaliteit</strong>
                         <span>Het dak moet waterdicht en duurzaam zijn.</span>
                     </div>
                 </div>
                 <div class="about-pillar">
-                    <div class="pillar-icon">◎</div>
+                    <div class="pillar-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </div>
                     <div class="pillar-body">
                         <strong>Optisch</strong>
                         <span>Ons streven is om u trots te laten voelen als u naar uw dak kijkt.</span>
@@ -1379,7 +1394,7 @@
                     </div>
                 </div>
                 <div class="about-pillar">
-                    <div class="pillar-icon">★</div>
+                    <div class="pillar-icon">✓</div>
                     <div class="pillar-body">
                         <strong>Service</strong>
                         <span>Wij geven altijd lange garanties op onze werkzaamheden. Twijfelt u ergens over of heeft u vragen, dan staan wij altijd paraat voor een gesprek of dak inspectie.</span>
@@ -1415,26 +1430,56 @@
         <div class="about-content">
             <h2>Hoe werken wij</h2>
 
-            <div class="how-steps">
-                <div class="how-step">
-                    <div class="how-step-number">1</div>
-                    <div class="how-step-body">
-                        <strong>Bezichtiging &amp; advies</strong>
-                        <p>Voordat wij een accurate offerte op kunnen stellen zullen wij altijd eerst ter plaatse komen om zelf de huidige situatie van het dak te bekijken. Tijdens deze bezichtiging bespreken we uw wensen en koppelen dit aan de mogelijkheden voor het desbetreffende dak. Op deze manier proberen we misverstanden en onduidelijkheden te voorkomen en hierdoor kunnen we u een correct advies geven. Ons advies is gebaseerd op hoe wij het zouden doen als het óns huis zou zijn.</p>
-                    </div>
+            <div class="howsteps-carousel">
+                <div class="carousel-controls">
+                    <button class="carousel-btn" onclick="moveCarousel('howsteps',-1)" aria-label="Vorige"><svg viewBox="0 0 14 14"><polyline points="9,2 4,7 9,12"/></svg></button>
+                    <div class="carousel-dots" id="howstepsDots"></div>
+                    <button class="carousel-btn" onclick="moveCarousel('howsteps',1)" aria-label="Volgende"><svg viewBox="0 0 14 14"><polyline points="5,2 10,7 5,12"/></svg></button>
                 </div>
-                <div class="how-step">
-                    <div class="how-step-number">2</div>
-                    <div class="how-step-body">
-                        <strong>Offerte op maat</strong>
-                        <p>Na deze eerste kennismaking en bezichtiging stellen we een geheel op maat gemaakte, vrijblijvende en overzichtelijke offerte voor u op. Deze offerte ontvangt u per email of kan direct worden uitgeschreven. Uiteraard staan wij open voor vragen en/of opmerkingen, maar ook als u liever iets aangepast ziet in de offerte. Alles is bespreekbaar en goed overleg zorgt voor een fijne (eventuele) samenwerking.</p>
-                    </div>
-                </div>
-                <div class="how-step">
-                    <div class="how-step-number">3</div>
-                    <div class="how-step-body">
-                        <strong>Akkoord &amp; planning</strong>
-                        <p>Indien u akkoord gaat met de opgestelde offerte kunt u dit in een reactie per mail bevestigen. Hierna zullen wij contact met u opnemen (per mail of telefoon) om een uitvoerdatum en eventueel andere zaken met u kort te sluiten.</p>
+                <div class="how-steps">
+                    <div class="howsteps-track" id="howstepsTrack">
+                        <div class="how-step">
+                            <div class="how-step-number">1</div>
+                            <div class="how-step-body">
+                                <strong>Bezichtiging</strong>
+                                <p>Wij komen altijd eerst ter plaatse om de huidige situatie van het dak te bekijken. Zo kunnen we de staat, het type en de omvang van het werk goed inschatten voordat we verdere stappen ondernemen.</p>
+                            </div>
+                        </div>
+                        <div class="how-step">
+                            <div class="how-step-number">2</div>
+                            <div class="how-step-body">
+                                <strong>Advies</strong>
+                                <p>Tijdens de bezichtiging bespreken we uw wensen en koppelen dit aan de mogelijkheden. Ons advies is eerlijk en gebaseerd op hoe wij het zouden doen als het óns huis zou zijn — zonder onnodige kosten.</p>
+                            </div>
+                        </div>
+                        <div class="how-step">
+                            <div class="how-step-number">3</div>
+                            <div class="how-step-body">
+                                <strong>Offerte op maat</strong>
+                                <p>Na de bezichtiging stellen we een volledig op maat gemaakte, vrijblijvende offerte op. Overzichtelijk, transparant en zonder verborgen kosten. Aanpassingen zijn altijd bespreekbaar.</p>
+                            </div>
+                        </div>
+                        <div class="how-step">
+                            <div class="how-step-number">4</div>
+                            <div class="how-step-body">
+                                <strong>Akkoord</strong>
+                                <p>Gaat u akkoord met de offerte? U bevestigt dit eenvoudig per mail of telefoon. Geen gedoe, geen kleine lettertjes — gewoon een helder ja en we gaan verder.</p>
+                            </div>
+                        </div>
+                        <div class="how-step">
+                            <div class="how-step-number">5</div>
+                            <div class="how-step-body">
+                                <strong>Planning</strong>
+                                <p>Na akkoord nemen wij contact op om een uitvoerdatum in te plannen die voor u uitkomt. We stemmen alle praktische zaken vooraf af zodat de uitvoering soepel verloopt.</p>
+                            </div>
+                        </div>
+                        <div class="how-step">
+                            <div class="how-step-number">6</div>
+                            <div class="how-step-body">
+                                <strong>Garantie</strong>
+                                <p>Op al ons werk geven wij lange garanties. Heeft u achteraf vragen of twijfels? Wij staan altijd klaar voor een gesprek of inspectie. Uw tevredenheid is en blijft onze prioriteit.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1854,9 +1899,10 @@
         function moveService(dir) { moveCarousel('services', dir); }
 
         document.addEventListener('DOMContentLoaded', () => {
-            initCarousel('services', 'servicesTrack', 'serviceDots', 4);
-            initCarousel('projects', 'projectsTrack', 'projectsDots', 8);
-            initCarousel('reviews', 'reviewsTrack', 'reviewsDots', 10);
+initCarousel('howsteps',  'howstepsTrack',  'howstepsDots',  6);
+            initCarousel('services',  'servicesTrack',  'serviceDots',   4);
+            initCarousel('projects',  'projectsTrack',  'projectsDots',  8);
+            initCarousel('reviews',   'reviewsTrack',   'reviewsDots',   10);
         });
 
         function handleQuoteRequest() {
