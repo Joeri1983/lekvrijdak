@@ -1219,6 +1219,25 @@
         }
 
 
+        .nav-phone-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background-color: #f0faf0;
+            color: #50b243;
+            border: 2px solid #50b243;
+            text-decoration: none;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .nav-phone-btn:hover {
+            background-color: #50b243;
+            color: white;
+        }
+
         .nav-cta-button {
             background-color: #50b243;
             color: white;
@@ -1374,6 +1393,9 @@
                 <li class="nav-item"><a href="#reviews">Reviews</a></li>
                 <li class="nav-item"><a href="#contact">Contact</a></li>
             </ul>
+            <a href="tel:+31850668999" class="nav-phone-btn" title="Bel ons direct">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 5.93 5.93l1.37-1.37a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
             <button class="nav-cta-button" onclick="handleQuoteRequest()">Offerte</button>
             <button class="hamburger-icon" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Toggle menu">
                 <span></span>
@@ -1449,11 +1471,11 @@
 
             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px;">
                 <div class="about-stat">
-                    <div class="stat-number">500+</div>
+                    <div class="stat-number">1200+</div>
                     <div class="stat-label">Klussen voltooid</div>
                 </div>
                 <div class="about-stat">
-                    <div class="stat-number">15+</div>
+                    <div class="stat-number">20+</div>
                     <div class="stat-label">Jaar ervaring</div>
                 </div>
                 <div class="about-stat">
@@ -1563,6 +1585,39 @@
                     <div class="service-card">
                         <div class="service-card-img-wrap">
                             <svg class="service-card-img" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" style="background:#f4f8f3;">
+                              <!-- house silhouette -->
+                              <rect x="120" y="148" width="160" height="72" fill="#fff" stroke="#333" stroke-width="2"/>
+                              <polygon points="105,148 200,85 295,148" fill="#50b243" stroke="#333" stroke-width="2"/>
+                              <!-- gutter along eave -->
+                              <rect x="100" y="148" width="200" height="10" rx="5" fill="#aaa" stroke="#555" stroke-width="1.5"/>
+                              <!-- downpipe left -->
+                              <rect x="100" y="156" width="10" height="60" rx="3" fill="#aaa" stroke="#555" stroke-width="1.5"/>
+                              <!-- water flowing -->
+                              <line x1="105" y1="216" x2="105" y2="230" stroke="#4a90d9" stroke-width="3" stroke-linecap="round"/>
+                              <ellipse cx="105" cy="232" rx="6" ry="3" fill="#4a90d9" opacity="0.5"/>
+                              <!-- downpipe right -->
+                              <rect x="290" y="156" width="10" height="60" rx="3" fill="#aaa" stroke="#555" stroke-width="1.5"/>
+                              <line x1="295" y1="216" x2="295" y2="230" stroke="#4a90d9" stroke-width="3" stroke-linecap="round"/>
+                              <ellipse cx="295" cy="232" rx="6" ry="3" fill="#4a90d9" opacity="0.5"/>
+                              <!-- zinc detail lines on gutter -->
+                              <line x1="130" y1="150" x2="130" y2="156" stroke="#888" stroke-width="1"/>
+                              <line x1="160" y1="150" x2="160" y2="156" stroke="#888" stroke-width="1"/>
+                              <line x1="190" y1="150" x2="190" y2="156" stroke="#888" stroke-width="1"/>
+                              <line x1="220" y1="150" x2="220" y2="156" stroke="#888" stroke-width="1"/>
+                              <line x1="250" y1="150" x2="250" y2="156" stroke="#888" stroke-width="1"/>
+                              <line x1="280" y1="150" x2="280" y2="156" stroke="#888" stroke-width="1"/>
+                              <line x1="40" y1="240" x2="360" y2="240" stroke="#ccc" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <div class="service-card-body">
+                            <h3>Zink werkzaamheden</h3>
+                            <p>Zinken dakgoten, afvoeren en bekleding zijn kwetsbare onderdelen die regelmatig aandacht verdienen. Wij vervangen verouderde of lekkende goten, monteren nieuwe zinken afvoerpijpen en verzorgen dakrandafwerking in zink. Dankzij de duurzaamheid en het strakke uiterlijk van zink is dit een tijdloze en onderhoudsarme keuze voor uw woning of bedrijfspand.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card-img-wrap">
+                            <svg class="service-card-img" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg" style="background:#f4f8f3;">
                               <rect x="120" y="140" width="160" height="75" fill="#fff" stroke="#333" stroke-width="2.5"/>
                               <polygon points="100,140 200,70 300,140" fill="#50b243" stroke="#333" stroke-width="2.5"/>
                               <rect x="178" y="160" width="24" height="55" fill="#e0e0e0" stroke="#333" stroke-width="1.5"/>
@@ -1577,7 +1632,7 @@
                         </div>
                         <div class="service-card-body">
                             <h3>Onderhoud</h3>
-                            <p>Het goed onderhouden van een dak vergroot de levensduur aanzienlijk. Lostalende daktrim, scheurende deklijsten en losrakende afvoeren zijn kwetsbare punten die kunnen leiden tot lekkages, rotting van hout of isolatie en verdere schade aan de dakbedekking. Wij zorgen dat uw dak goed onderhouden wordt, zodat u niet voor onverwachte kosten komt te staan.</p>
+                            <p>Het goed onderhouden van een dak vergroot de levensduur aanzienlijk. Loslatende daktrim, scheurende deklijsten en losrakende afvoeren zijn kwetsbare punten die kunnen leiden tot lekkages, rotting van hout of isolatie en verdere schade aan de dakbedekking. Wij zorgen dat uw dak goed onderhouden wordt, zodat u niet voor onverwachte kosten komt te staan.</p>
                         </div>
                     </div>
 
@@ -1863,7 +1918,7 @@
                         </svg>
                     </div>
                     <div class="contact-item-label">BELLEN</div>
-                    <div class="contact-item-value"><a href="tel:+31612466941">+31 612 466 941</a></div>
+                    <div class="contact-item-value"><a href="tel:+31850668999">+31 85 066 8999</a></div>
                 </div>
 
                 <div class="contact-hours-box">
@@ -1951,7 +2006,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
 initCarousel('howsteps',  'howstepsTrack',  'howstepsDots',  6);
-            initCarousel('services',  'servicesTrack',  'serviceDots',   4);
+            initCarousel('services',  'servicesTrack',  'serviceDots',   5);
             initCarousel('projects',  'projectsTrack',  'projectsDots',  8);
             initCarousel('reviews',   'reviewsTrack',   'reviewsDots',   10);
         });
